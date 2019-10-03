@@ -68,12 +68,9 @@ bpCusum <- function(sampleGreenNormSum, sampleRedNormSum) {
 #------ try to fit assymptote to the end of the red signal ----------
 tryFit <- function() {
   fit <- findFit(breakpoint_find, EOF, sampleRedNormMax)
-
   redTailX <- breakpoint_find:(EOF + 50)
-
   am <- tidy(fit)
   alpha_exp <- am[3, 2]
-
   if (is.na(alpha_exp)) alpha_exp <- -10 # if all fails, hard set the alpha to -10, assuming linear gradient
 }
 
